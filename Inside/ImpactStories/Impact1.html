@@ -1,0 +1,1568 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .rotate:hover {
+            -webkit-transform: rotateZ(+10deg);
+            -ms-transform: rotateZ(+10deg);
+            transform: rotateZ(+10deg);
+        }
+
+        @-webkit-keyframes swing {
+            15% {
+                -webkit-transform: translateX(5px);
+                transform: translateX(5px);
+            }
+
+            30% {
+                -webkit-transform: translateX(-5px);
+                transform: translateX(-5px);
+            }
+
+            50% {
+                -webkit-transform: translateX(3px);
+                transform: translateX(3px);
+            }
+
+            65% {
+                -webkit-transform: translateX(-3px);
+                transform: translateX(-3px);
+            }
+
+            80% {
+                -webkit-transform: translateX(2px);
+                transform: translateX(2px);
+            }
+
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes swing {
+            15% {
+                -webkit-transform: translateX(5px);
+                transform: translateX(5px);
+            }
+
+            30% {
+                -webkit-transform: translateX(-5px);
+                transform: translateX(-5px);
+            }
+
+            50% {
+                -webkit-transform: translateX(3px);
+                transform: translateX(3px);
+            }
+
+            65% {
+                -webkit-transform: translateX(-3px);
+                transform: translateX(-3px);
+            }
+
+            80% {
+                -webkit-transform: translateX(2px);
+                transform: translateX(2px);
+            }
+
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+            }
+        }
+
+        .swing:hover {
+            -webkit-animation: swing 1s ease;
+            animation: swing 1s ease;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+        }
+
+        .grow:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        @font-face {
+            font-family: 'charlotte';
+            src: url('../../fonts/charlotte.ttf') format('truetype');
+        }
+
+        .dev {
+            font-family: charlotte;
+            color: white;
+            font-size: 400%;
+        }
+
+        @font-face {
+            font-family: 'Intimacy';
+            src: url('../../fonts/Intimacy.ttf') format('truetype');
+        }
+
+        .inti {
+            font-family: TitilliumWeb-Bold;
+            color: white;
+            font-size: 150%;
+        }
+
+        .inti1 {
+            font-family: TitilliumWeb-Bold;
+            color: white;
+            font-size: 278%;
+        }
+
+        @font-face {
+            font-family: 'TitilliumWeb-Bold';
+            src: url('../../fonts/TitilliumWeb-Bold.ttf') format('truetype');
+        }
+
+        blockquote {
+            font-family: Georgia, serif;
+            position: relative;
+            margin: 0.5em;
+            padding: 0.5em 2em 0.5em 3em;
+        }
+            /* Thanks: http://callmenick.com/post/styling-blockquotes-with-css-pseudo-classes */
+            blockquote:before {
+                font-family: Georgia, serif;
+                position: absolute;
+                font-size: 6em;
+                line-height: 1;
+                top: 0;
+                left: 0;
+                content: "\201C";
+            }
+
+            blockquote:after {
+                font-family: Georgia, serif;
+                position: absolute;
+                /* display: block; don't use this, it raised the quote too high from the bottom - defeated line-height? */
+                float: right;
+                font-size: 6em;
+                line-height: 1;
+                right: 0;
+                bottom: -0.5em;
+                content: "\201D";
+            }
+
+            blockquote footer {
+                padding: 0 2em 0 0;
+                text-align: right;
+            }
+
+            blockquote cite:before {
+                content: "\2013";
+            }
+
+        @media screen and (min-width: 601px) {
+            #vishwa {
+                font-size: 50px;
+            }
+        }
+
+        /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+        @media screen and (max-width: 600px) {
+            #vishwa {
+                font-size: 25px;
+            }
+        }
+
+        .splitdiv {
+            width: 750px;
+            height: 750px;
+            background-image: url(img1.png), url(../../images/ms1.jpg);
+            background-position: center top, right top, center bottom;
+            background-repeat: no-repeat, repeat-x;
+        }
+
+        .odometer {
+            font-size: 100px;
+        }
+    </style>
+    <style>
+        .cont {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        /* Bottom left text */
+        .bottom-left {
+            position: absolute;
+            bottom: 8px;
+            left: 16px;
+        }
+
+        /* Top left text */
+        .top-left {
+            position: absolute;
+            top: 8px;
+            left: 16px;
+        }
+
+        /* Top right text */
+        .top-right {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+        }
+
+        /* Bottom right text */
+        .bottom-right {
+            position: absolute;
+            bottom: 8px;
+            right: 16px;
+        }
+
+        /* Centered text */
+        .centered {
+            top: 2px;
+            position: absolute;
+            left: 15%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+    <style>
+        body {
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        a {
+            color: #000;
+        }
+
+        /* header */
+
+        .header {
+            background-color: #fff;
+            box-shadow: 10px 10px 10px 0 rgba(0,0,0,.1);
+            width: 100%;
+            z-index: 3;
+        }
+
+            .header ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                background-color: #fff;
+            }
+
+            .header li a {
+                display: block;
+                padding: 20px 20px;
+                border-right: 1px solid #f4f4f4;
+                text-decoration: none;
+            }
+
+                .header li a:hover,
+                .header .menu-btn:hover {
+                    background-color: #f4f4f4;
+                }
+
+            .header .logo {
+                display: block;
+                float: left;
+                font-size: 2em;
+                text-decoration: none;
+            }
+
+            /* menu */
+
+            .header .menu {
+                clear: both;
+                max-height: 0;
+                transition: max-height .2s ease-out;
+            }
+
+            /* menu icon */
+
+            .header .menu-icon {
+                cursor: pointer;
+                display: inline-block;
+                float: right;
+                padding: 28px 20px;
+                position: relative;
+                user-select: none;
+            }
+
+                .header .menu-icon .navicon {
+                    background: #333;
+                    display: block;
+                    height: 2px;
+                    position: relative;
+                    transition: background .2s ease-out;
+                    width: 18px;
+                }
+
+                    .header .menu-icon .navicon:before,
+                    .header .menu-icon .navicon:after {
+                        background: #333;
+                        content: '';
+                        display: block;
+                        height: 100%;
+                        position: absolute;
+                        transition: all .2s ease-out;
+                        width: 100%;
+                    }
+
+                    .header .menu-icon .navicon:before {
+                        top: 5px;
+                    }
+
+                    .header .menu-icon .navicon:after {
+                        top: -5px;
+                    }
+
+            /* menu btn */
+
+            .header .menu-btn {
+                display: none;
+            }
+
+                .header .menu-btn:checked ~ .menu {
+                    max-height: 240px;
+                }
+
+                .header .menu-btn:checked ~ .menu-icon .navicon {
+                    background: transparent;
+                }
+
+                    .header .menu-btn:checked ~ .menu-icon .navicon:before {
+                        transform: rotate(-45deg);
+                    }
+
+                    .header .menu-btn:checked ~ .menu-icon .navicon:after {
+                        transform: rotate(45deg);
+                    }
+
+                .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+                .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+                    top: 0;
+                }
+
+        /* 48em = 768px */
+
+        @media (min-width: 48em) {
+            .header li {
+                float: left;
+            }
+
+                .header li a {
+                    padding: 20px 30px;
+                }
+
+            .header .menu {
+                clear: none;
+                float: right;
+                max-height: none;
+            }
+
+            .header .menu-icon {
+                display: none;
+            }
+        }
+    </style>
+    <style>
+
+
+        /* Header/Blog Title */
+        .header1 {
+            padding: 30px;
+            font-size: 40px;
+            text-align: center;
+            background: white;
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 75%;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 25%;
+            padding-left: 20px;
+        }
+
+        /* Fake image */
+        .fakeimg {
+            background-color: #aaa;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+            .leftcolumn, .rightcolumn {
+                width: 100%;
+                padding: 0;
+            }
+        }
+
+        .imglink:hover {
+            background-color: blue;
+        }
+    </style>
+    <style>
+        @font-face {
+            font-family: 'YatraOne-Regular';
+            src: url('../../fonts/MarathiFonts/YatraOne-Regular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Amita-Bold';
+            src: url('../../fonts/MarathiFonts/Amita-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'InknutAntiqua-Bold';
+            src: url('../../fonts/MarathiFonts/InknutAntiqua-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Kalam-Bold';
+            src: url('../../fonts/MarathiFonts/Kalam-Bold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Modak-Regular';
+            src: url('../../fonts/MarathiFonts/Modak-Regular.ttf') format('truetype');
+        }
+
+        .mr1 {
+            font-family: Amita-Bold;
+            color: red;
+        }
+
+        .mr2 {
+            font-family: InknutAntiqua-Bold;
+            color: red;
+        }
+
+        .mr3 {
+            font-family: Kalam-Bold;
+            color: red;
+        }
+
+        .mr4 {
+            font-family: Modak-Regular;
+            color: red;
+        }
+
+        .mr5 {
+            font-family: YatraOne-Regular;
+            color: #004400;
+        }
+
+        .mr6 {
+            font-family: SAROJI;
+            color: red;
+            font-weight: 300;
+        }
+
+        .mr7 {
+            font-family: SAROJBI;
+            color: red;
+        }
+
+        .cropped1 {
+            object-fit: cover;
+            border: 5px solid black;
+        }
+
+        @font-face {
+            font-family: 'charlotte';
+            src: url('../../fonts/charlotte.ttf') format('truetype');
+        }
+
+        .dev {
+            font-family: charlotte;
+            color: white;
+            font-size: 400%;
+        }
+
+        @font-face {
+            font-family: 'Intimacy';
+            src: url('../../fonts/Intimacy.ttf') format('truetype');
+        }
+
+        .inti {
+            font-family: TitilliumWeb-Bold;
+            color: white;
+            font-size: 150%;
+        }
+
+        @font-face {
+            font-family: 'TitilliumWeb-Bold';
+            src: url('../../fonts/TitilliumWeb-Bold.ttf') format('truetype');
+        }
+
+        .frame {
+            width: 300px;
+            height: 250px;
+            border: 3px solid #ccc;
+            background: #eee;
+            margin: auto;
+            padding: 15px 10px;
+        }
+    </style>
+    <style>
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #008CBA;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            transform: scale(0);
+            transition: .3s ease;
+        }
+
+        /* When you mouse over the container, the overlay text will "zoom" in display */
+        .dvhv:hover .overlay {
+            transform: scale(1);
+            color: white;
+        }
+    </style>
+    <style>
+        body {
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        a {
+            color: #000;
+        }
+
+        /* header */
+
+        .header {
+            background-color: #fff;
+            box-shadow: 10px 10px 10px 0 rgba(0,0,0,.1);
+            width: 100%;
+            z-index: 3;
+        }
+
+            .header ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                overflow: hidden;
+                background-color: #fff;
+            }
+
+            .header li a {
+                display: block;
+                padding: 20px 20px;
+                border-right: 1px solid #f4f4f4;
+                text-decoration: none;
+            }
+
+                .header li a:hover,
+                .header .menu-btn:hover {
+                    background-color: #f4f4f4;
+                }
+
+            .header .logo {
+                display: block;
+                float: left;
+                font-size: 2em;
+                text-decoration: none;
+            }
+
+            /* menu */
+
+            .header .menu {
+                clear: both;
+                max-height: 0;
+                transition: max-height .2s ease-out;
+            }
+
+            /* menu icon */
+
+            .header .menu-icon {
+                cursor: pointer;
+                display: inline-block;
+                float: right;
+                padding: 28px 20px;
+                position: relative;
+                user-select: none;
+            }
+
+                .header .menu-icon .navicon {
+                    background: #333;
+                    display: block;
+                    height: 2px;
+                    position: relative;
+                    transition: background .2s ease-out;
+                    width: 18px;
+                }
+
+                    .header .menu-icon .navicon:before,
+                    .header .menu-icon .navicon:after {
+                        background: #333;
+                        content: '';
+                        display: block;
+                        height: 100%;
+                        position: absolute;
+                        transition: all .2s ease-out;
+                        width: 100%;
+                    }
+
+                    .header .menu-icon .navicon:before {
+                        top: 5px;
+                    }
+
+                    .header .menu-icon .navicon:after {
+                        top: -5px;
+                    }
+
+            /* menu btn */
+
+            .header .menu-btn {
+                display: none;
+            }
+
+                .header .menu-btn:checked ~ .menu {
+                    max-height: 240px;
+                }
+
+                .header .menu-btn:checked ~ .menu-icon .navicon {
+                    background: transparent;
+                }
+
+                    .header .menu-btn:checked ~ .menu-icon .navicon:before {
+                        transform: rotate(-45deg);
+                    }
+
+                    .header .menu-btn:checked ~ .menu-icon .navicon:after {
+                        transform: rotate(45deg);
+                    }
+
+                .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+                .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+                    top: 0;
+                }
+
+        /* 48em = 768px */
+
+        @media (min-width: 48em) {
+            .header li {
+                float: left;
+            }
+
+                .header li a {
+                    padding: 20px 30px;
+                }
+
+            .header .menu {
+                clear: none;
+                float: right;
+                max-height: none;
+            }
+
+            .header .menu-icon {
+                display: none;
+            }
+        }
+    </style>
+    <style>
+
+        .navbar-brand {
+            padding: 0px;
+        }
+
+            .navbar-brand > img {
+                height: 100%;
+                padding: 15px;
+                width: auto;
+            }
+        /*************************
+        EXAMPLES 2-7 BELOW
+        **************************/
+
+        /* EXAMPLE 2 (larger logo) - simply adjust top bottom padding to make logo larger */
+
+        .example2 .navbar-brand > img {
+            padding: 7px 15px;
+        }
+
+
+        /* EXAMPLE 3
+        line height is 20px by default so add 30px top and bottom to equal the new .navbar-brand 80px height  */
+
+        .example3 .navbar-brand {
+            height: 80px;
+        }
+
+        .example3 .nav > li > a {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .navbar-default .navbar-nav > li > a {
+            box-shadow: -1px 4px 3px 1px #d6e2c2;
+        }
+
+        .navbar-default .navbar-nav > li:hover {
+            background-color: red;
+        }
+
+        .example3 .navbar-toggle {
+            padding: 10px;
+            margin: 25px 15px 25px 0;
+        }
+
+
+        /* EXAMPLE 4 - Small Narrow Logo*/
+        .example4 .navbar-brand > img {
+            padding: 7px 14px;
+        }
+
+
+        /* EXAMPLE 5 - Logo with Text*/
+        .example5 .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+            .example5 .navbar-brand > img {
+                padding: 7px 14px;
+            }
+
+
+        /* EXAMPLE 6 - Background Logo*/
+        .example6 .navbar-brand {
+            background: url(https://gitlab.com/honeymarket/honeymarket.com/uploads/bbff8bb1081293043a0d71c3d427514e/HM16_aino_regular_s.svg) center / contain no-repeat;
+            width: 200px;
+        }
+        /* EXAMPLE 8 - Center on mobile*/
+        @media only screen and (max-width : 768px) {
+            .example-8 .navbar-brand {
+                padding: 0px;
+                transform: translateX(-50%);
+                left: 50%;
+                position: absolute;
+            }
+
+                .example-8 .navbar-brand > img {
+                    height: 100%;
+                    width: auto;
+                    padding: 7px 14px;
+                }
+        }
+
+        @media only screen and (max-width : 979px) {
+            .dropdown-menu li:hover .dropdown-menu {
+                position: static;
+            }
+
+            /* EXAMPLE 8 - Center Background */
+            .example-8 .navbar-brand {
+                background: url(https://gitlab.com/honeymarket/honeymarket.com/uploads/bbff8bb1081293043a0d71c3d427514e/HM16_aino_regular_s.svg) center / contain no-repeat;
+                width: 200px;
+                transform: translateX(-50%);
+                left: 50%;
+                position: absolute;
+            }
+            /* EXAMPLE 9 - Center with Flexbox and Text*/
+            .brand-centered {
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                top: 0;
+            }
+
+                .brand-centered .navbar-brand {
+                    display: flex;
+                    align-items: center;
+                }
+
+            /* CSS Transform Align Navbar Brand Text ... This could also be achieved with table / table-cells */
+            .navbar-alignit .navbar-header {
+                -webkit-transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+                height: 50px;
+            }
+
+            .navbar-alignit .navbar-brand {
+                top: 50%;
+                display: block;
+                position: relative;
+                height: auto;
+                transform: translate(0,-50%);
+                margin-right: 15px;
+                margin-left: 15px;
+            }
+
+            .navbar-nav > li > .dropdown-menu {
+                z-index: 9999;
+            }
+
+            body {
+                font-family: "Lato";
+            }
+
+            ul.nav li.dropdown:hover > ul.dropdown-menu {
+                display: block;
+            }
+
+            @media (min-width: 979px) {
+                ul.nav li.dropdown:hover > ul.dropdown-menu {
+                    display: block;
+                }
+            }
+        }
+    </style>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        /* zero out all padding/margin */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .outer-navigation-wrapper {
+            background-color: white;
+        }
+
+        /* main navigation wrapper */
+
+        .main-navigation-wrapper {
+            width: 80%;
+            margin: 0 auto;
+            font-family: helvetica, sans-serif;
+            max-width: 1100px;
+            position: relative;
+            z-index: 1000;
+        }
+
+
+        .main-navigation {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            line-height: 28px;
+            width: 106%;
+        }
+
+        @media (max-width: 960px) {
+
+            .main-navigation-wrapper {
+                width: 100%;
+            }
+        }
+
+        .main-navigation {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            line-height: 28px;
+        }
+
+        @media screen and (max-width: 960px) {
+
+            .main-navigation {
+                display: none;
+            }
+        }
+
+        .main-navigation li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            position: relative;
+        }
+
+        @media screen and (max-width: 960px) {
+
+            .main-navigation li {
+                position: static;
+            }
+        }
+
+        .main-navigation li i {
+            font-size: 16px;
+            margin: 0 0 0 5px;
+            padding: 0;
+        }
+
+        @media screen and (max-width: 960px) {
+
+            .main-navigation li {
+                width: 100%;
+            }
+        }
+
+        .main-navigation a {
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: 960px) {
+
+            .main-navigation a {
+                padding: 15px 25px;
+            }
+        }
+
+        .main-navigation a:hover {
+            color: #000;
+        }
+
+        /* drop menu */
+
+        .main-navigation .drop-menu {
+            position: absolute;
+            top: 3.2em;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #f2f2f2;
+            margin: 0;
+            padding: 0;
+            width: 250px;
+
+        }
+
+        @media screen and (max-width: 960px) {
+
+            .main-navigation .drop-menu {
+                top: 0;
+                left: 0;
+                border: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                box-shadow: none;
+                height: 100%;
+            }
+        }
+
+        .drop-menu li {
+            border-bottom: 1px solid #f2f2f2;
+        }
+
+        .drop-menu a {
+            padding: 15px 15px;
+            color: #004400;
+        }
+
+        @media screen and (max-width: 960px) {
+
+            .drop-menu a {
+                padding: 15px 25px;
+                color: #000;
+            }
+        }
+
+        .drop-menu a:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* drop menu sub */
+
+        .main-navigation .drop-menu-sub ul {
+            background-color: #fff;
+        }
+
+        @media screen and (max-width: 960px) {
+
+            .main-navigation .drop-menu-sub ul {
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                box-shadow: none;
+                height: 100%;
+            }
+        }
+
+        .drop-menu-sub ul {
+            margin: 0;
+            padding: 0;
+        }
+
+            .drop-menu-sub ul li {
+                border: 1px solid #f2f2f2;
+            }
+
+        /* mobile menu icon */
+
+        .mobile-menu-icon {
+            display: none;
+        }
+
+        @media screen and (max-width: 960px) {
+
+            .mobile-menu-icon {
+                display: block;
+                text-align: right;
+                color: #fff;
+                padding: 15px 40px; left:50px;
+                font-size: 20px;
+            }
+
+            .main-navigation li {
+                width: 100%;
+            }
+        }
+
+        .drop-menu .list-header {
+            font-size: 20px;
+            padding: 20px 15px 20px 25px;
+            color: #B771E7;
+            display: none;
+        }
+
+        @media screen and (max-width: 960px) {
+
+            .drop-menu .list-header {
+                display: block;
+            }
+        }
+
+        .drop-menu .close-sub-menu {
+            background-color: #B771E7;
+            color: #fff;
+            text-align: right;
+            border-bottom: none;
+            padding: 15px;
+            display: none;
+        }
+
+        @media screen and (max-width: 960px) {
+
+            .drop-menu .close-sub-menu {
+                display: block;
+            }
+        }
+
+        .main-navigation-wrapper {
+            width: 80%;
+            margin: 0 auto;
+            font-family: helvetica, sans-serif;
+            max-width: 1100px;
+            position: relative;
+            z-index: 1000;
+        }
+
+
+        .list:hover {
+            background-color: lightgray;
+            -o-transition: .5s;
+            -ms-transition: .5s;
+            -moz-transition: .5s;
+            -webkit-transition: .5s;
+            /* ...and now for the proper property */
+            transition: .5s;
+        }
+    </style>
+
+
+    <title>Impact Stories - 1</title>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/animate.css">
+    <link rel="stylesheet" href="../../css/owl.carousel.css">
+    <link rel="stylesheet" href="../../css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../../css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="../../css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/component2.css" />
+    <script src="../../js/modernizr-2.6.2.min.js"></script>
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../../css/templatemo-style.css">
+
+</head>
+<body>
+
+    <!-- PRE LOADER -->
+    <section class="preloader">
+        <div class="spinner">
+
+            <span class="spinner-rotate"></span>
+
+        </div>
+    </section>
+
+
+    <!-- MENU -->
+    <div class="codrops-top clearfix" style="background-color:#dcdcdc" id="codo">
+        <div class="row" style="padding:5px;">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-3">
+                <input type="email" class="form-control input-sm" id="cf-email" name="email" placeholder="Email address">
+            </div>
+            <div class="col-md-3" id="col1">
+                <a href="#footer" class="section-btn" style="background-color:#004400;color:white;font-weight:bold;padding-left:10px;border-radius:5px">&nbsp;&nbsp;Subscribe&nbsp;&nbsp;</a>
+            </div>
+            <div class="col-md-3 space" id="col2">
+                <a href="#">
+                    <img src="../../images/facebook.png" width="29px" />
+                </a>
+                <a href="#">
+                    <img src="../../images/instagram.png" width="29px" />
+                </a>
+                <a href="#">
+                    <img src="../../images/twitter.png" width="29px" />
+                </a>
+            </div>
+            <div class="col-md-2">
+                <span class="right">
+                    <a href="#footer" id="btnfoot" class="section-btn" style="background-color:#004400;
+                color:white;top:0px;font-weight:bold;padding-left:10px;color:yellow;position:fixed;
+                right:250px;width:133px;height:52px;box-shadow: 4px 5px 4px 0 #578214;">
+                        <center style="font-size:large">DONATE</center>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="outer-navigation-wrapper" style="margin-top:18px;
+/**/
+">
+            <img src="../../images/1.jpg" style="
+             position: absolute;
+             padding: 0px;
+             margin-left: 20px;
+             width: 257px;
+             top: -13px;" />
+            <nav class="main-navigation-wrapper">
+
+
+                <div class="mobile-menu-icon"><i style="color:black;padding:0px" class="fa fa-bars"></i></div>
+
+
+
+                <ul class="main-navigation">
+
+                    <li class="list">
+                        <a class="mr2" style="border-right:1px solid #dedede;color:#004400;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500;font-size:0.9em" href="../../index.html">Home</a>
+                    </li>
+
+                    <li class="list">
+                        <a style="border-right:1px solid #dedede;color:#004400;color:#004400;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500;font-size:0.9em" href="#">About<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+
+                        <ul style="color:#004400;background-color:#cecccc" class="drop-menu">
+
+                            <li style="color:#004400;background-color:#cecccc" class="close-sub-menu">Main Menu<i class="fa fa-caret-up" aria-hidden="true"></i></li>
+
+                            <li style="color:#004400;background-color:#cecccc;" class="list-header">About</li>
+
+                            <li style="color:#454545;background-color:#cecccc"><a style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:0.9em;font-weight:500" href="../../Intro.html">Introduction</a></li>
+
+                            <li style="color:#454545;background-color:#cecccc"><a style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:0.9em;font-weight:500" href="../../Cause.html">Our Cause</a></li>
+
+                            <li style="color:#004400;background-color:#cecccc"><a style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:0.9em;font-weight:500" href="../../Team.html">Our Team</a></li>
+
+                            <li style="color:#004400;background-color:#cecccc"><a style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:0.9em;font-weight:500" href="../../FAQ.html">FAQ</a></li>
+
+                        </ul>
+
+                        <!-- end drop-menu -->
+                    </li>
+
+                    <li class="list">
+                        <a style="border-right:1px solid #dedede;color:#004400;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500;font-size:0.9em" href="../../OurWork.html">Our Work</a>
+                    </li>
+
+                    <li class="list">
+                        <a style="border-right:1px solid #dedede;color:#004400;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500;font-size:0.9em" href="../../ImpactStories.html">Impact Stories</a>
+                    </li>
+
+                    <li class="list">
+                        <a style="border-right:1px solid #dedede;color:#004400;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500;font-size:0.9em" href="../../BlogMenu.html">Blog</a>
+
+                    </li>
+
+                    <li class="list">
+                        <a style="border-right:1px solid #dedede;color:#004400;color:#004400;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500;font-size:0.9em" href="#">Media<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+
+                        <ul style="color:#454545;background-color:#cecccc" class="drop-menu">
+
+                            <li style="color:#454545;background-color:#cecccc" class="close-sub-menu">Main Menu<i class="fa fa-caret-up" aria-hidden="true"></i></li>
+
+                            <li style="color:#454545;background-color:#cecccc" class="list-header">Media</li>
+
+                            <li style="color:#454545;background-color:#cecccc"><a style="font-weight:500;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:0.9em" href="../../News.html">News</a></li>
+
+                            <li class="drop-menu-sub">
+                                <a style="font-weight:500;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:0.9em" href="#">Photos<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+
+                                <ul>
+
+                                    <li class="close-sub-menu">Main Menu<i class="fa fa-caret-up" aria-hidden="true"></i></li>
+
+                                    <li class="list-header">Photos</li>
+
+                                    <li><a style="font-weight:500;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:0.9em;color:#454545;background-color:#cecccc" href="../../Pics2016.html">2016</a></li>
+
+                                    <li><a style="font-weight:500;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:0.9em;color:#454545;background-color:#cecccc" href="../../Pics2017.html">2017</a></li>
+
+                                    <li><a style="font-weight:500;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:0.9em;color:#454545;background-color:#cecccc" href="../../Pics2018.html">2018</a></li>
+                                </ul>
+
+                                <!-- end drop-menu -->
+
+                            </li>
+
+                        </ul>
+
+                        <!-- end drop-menu -->
+                    </li>
+
+                    <li class="active list">
+                        <a style="color:#004400;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight:500;font-size:0.9em" href="../../Contact.html">Contact</a>
+                    </li>
+
+                </ul>
+
+                <!--end main-navigation-->
+
+            </nav>
+
+            <!-- end main-navigation-wrapper -->
+
+        </div>
+
+
+        <!--/.container-fluid -->
+    </nav>
+
+    <!-- ABOUT -->
+    <section id="about" data-stellar-background-ratio="0.5" style="padding:18px 0;background-color:#dfe6e9">
+        <div class="container">
+            <!--<div class="header">
+                <h2>Blog Name</h2>
+            </div>-->
+
+            <div class="row">
+                <div class="leftcolumn">
+                    <div class="card" style="box-shadow: 3px 6px 17px 5px #cdd2c5;">
+                        <h2 class="ghindm wow fadeInUp" style=" border-bottom: 1px dotted #000;text-decoration: none;color:#004400"
+                            data-wow-delay="0.5s">
+                            Preserving the glorious history of MSRTC by ST Vishwa Rath
+                        </h2>
+                        <h5 class="mr3" style="color:darkslategrey">May 10, 2019</h5>
+                        <img class="img-responsive" src="../../images/Events/IM1.jpg" style="width:100%" />
+                        <br />
+                        <p class="ghindm" style="font-size:large;text-align:left">
+                            Exhibition is an important medium by which we can explain a subject to a society or community.
+                            Also by presenting that knowledge in an attractive way, we can also increase the curiosity of the people
+                            regarding that subject. The concept of ST Vishwa Rath by Bus For Us Foundation is also a one of a
+                            kind idea, which explains the importance of MSRTC to people and by this we are promoting and preserving MSRTC.
+                        </p>
+                        <br />
+                        <p class="ghindm" style="font-size:large">
+                            From 1948, which is the birth of MSRTC till today, we are showcasing the history of MSRTC by many means,
+                            which answers a number is questions in people’s minds like,
+                            What is MSRTC? Why do we need MSRTC? What is the importance of MSRTC? Why do we need to strengthen MSRTC? etc.,
+                        </p>
+                        <br />
+                        <p class="ghindm" style="font-size:large">
+                            The conversion of ST Vishwa to ST Vishwa Rath is also an important step for our organization.
+                            A simple bus which has been modified to fit an entire exhibition and it is stationed
+                            at a bus stand so that every person can see the history of MSRTC, this is a one of a kind idea.
+                        </p>
+                        <br />
+                        <p class="ghindm" style="font-size:large">
+                            What is the importance of MSRTC?, to answer this question of people living even in the remotest part 
+                            of Maharashtra and to promote public 
+                            transportation with them, this mobile exhibition/ST Vishwa Rath now comes to a bus stand near them.
+                        </p>
+                        <br />
+                        <p class="ghindm" style="font-size:large">
+                            The upcoming generations are the ones who are going to strengthen MSRTC, they will be one who will work with 
+                            MSRTC to create a better future for themselves, and our exhibition is giving them the right knowledge to create a sustainable transport system in future. School, colleges and other social institutions are visiting ST Vishwa Rath 
+                            to get all this knowledge and also they are making projects and writing thesis on MSRTC as their main subject.
+                        </p>
+                        <br />
+                        <p class="ghindm" style="font-size:large">
+                            The feelings of love, affection and goodwill of people will remain the same towards MSRTC, 
+                            and we are 
+                            happy to say that ST Vishwa Rath is helping them create a better public transportation system.
+                        </p>
+                    </div>
+                </div>
+                <div class="rightcolumn">
+
+                    <div class="card" style="background-color:#dfe6e9">
+                        <center><h3 style=" border-bottom: 2px solid #000;text-decoration:none;">Also Read</h3></center>
+                        <div class="dvhv" style="border:2px solid #004400;background-color:#004400">
+                            <img src="../../images/Events/IM2.jpg" alt="5 Terre" style="width:100%;">
+                            <center><p class="ghindm" style="color:white;font-size:large">Waari ST Preminchi, the annual gathering of ST Enthusiasts</p></center>
+                            <center>
+                                <div class="middle">
+                                    <a class="text" href="Impact2.html" style="color:yellow;font-family:cursive">Read full blog..</a>
+                                </div>
+                            </center>
+                        </div>
+                        <br>
+                        <div class="dvhv" style="border:2px solid #004400;background-color:#004400">
+                            <img src="../../images/Events/IM3.jpg" alt="5 Terre" style="width:100%;">
+                            <center><p class="ghindm" style="color:white;font-size:large">Green Tourism, Tourism with MSRTC</p></center>
+                            <center>
+                                <div class="middle">
+                                    <a class="text" href="Impact3.html" style="color:yellow;font-family:cursive">Read full blog..</a>
+                                </div>
+                            </center>
+                        </div>
+                        <br>
+                        <div class="dvhv" style="border:2px solid #004400;background-color:#004400">
+                            <img src="../../images/Events/wst3.jpg" alt="5 Terre" style="width:100%;">
+                            <center><p class="ghindm" style="color:white;font-size:large">Pravasi Mitra Kaksha (Passenger Helpdesk)</p></center>
+                            <center>
+                                <div class="middle">
+                                    <a class="text" href="Impact4.html" style="color:yellow;font-family:cursive">Read full blog..</a>
+                                </div>
+                            </center>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer id="footer" data-stellar-background-ratio="0.5" style="padding:2px;background-color:darkgreen">
+        <center><p style="color:white;margin:0px"> &copy; All Rights Reserved by BusForUs Foundation</p></center>
+    </footer>
+
+
+
+    <!-- SCRIPTS -->
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/jquery.stellar.min.js"></script>
+    <script src="../../js/wow.min.js"></script>
+    <script src="../../js/owl.carousel.min.js"></script>
+    <script src="../../js/jquery.magnific-popup.min.js"></script>
+    <script src="../../js/smoothscroll.js"></script>
+    <script src="../../js/custom.js"></script>
+    <script src="../../js/polyfills.js"></script>
+    <script src="../../js/demo2.js"></script>
+    <script src="../../js/odometer.js"></script>
+
+
+    <script>
+        setTimeout(function () {
+            $('#odometer1').prop('innerHTML', '456')
+            $('#odometer2').prop('innerHTML', '345')
+            $('#odometer3').prop('innerHTML', '242')
+        }, 1000);
+        $(document).ready(function () {
+
+            //hide drop menu and drop menu sub
+
+            $('.drop-menu, .drop-menu-sub ul').hide();
+
+            //show drop menu
+
+            $('.main-navigation li').css('cursor', 'pointer').click(function () {
+
+                $(this).find('.drop-menu').slideDown().end().siblings().find('ul').hide();
+
+            });
+
+            // show mobile menu icon at 960px window width
+
+            $('.mobile-menu-icon').css('cursor', 'pointer').click(function () {
+
+                $('.main-navigation').slideToggle();
+
+            });
+
+            //show drop menu sub
+
+            $('.drop-menu-sub').css('cursor', 'pointer').click(function () {
+
+                $(this).find('ul').slideToggle().end().siblings().find('ul').hide();
+
+            });
+
+            // close sub menu
+
+            $('.close-sub-menu').css('cursor', 'pointer').click(function () {
+
+                $(this).parent('ul').slideUp();
+
+                return false;
+
+            });
+
+            //drop menu slide up if window width more than 960px
+
+            $('.drop-menu').mouseleave(function () {
+
+                if ($(window).width() > 960) {
+
+                    $('.drop-menu').slideUp();
+
+                }
+
+            });
+
+            //realign main-navigation and hide drop menu at 960px window width
+
+            $(window).resize(function () {
+
+                if ($(window).width() > 960) {
+
+                    $('.main-navigation').css('display', 'flex');
+
+                    $('.drop-menu').hide();
+
+                    $('#btnfoot').removeProp('position');
+                    $('#btnfoot').removeProp('right');
+                    $('#btnfoot').removeProp('top');
+                    $('#col1').removeProp('padding');
+
+
+                    $('#btnfoot').css('position', 'fixed');
+                    $('#btnfoot').css('right', '254px');
+                    $('#btnfoot').css('top', '0px');
+                    $('#col1').css('padding', '0');
+
+                }
+
+                else if ($(window).width() < 960) {
+
+                    $('.main-navigation').css('display', 'none');
+
+                    $('#btnfoot').removeProp('right');
+                    $('#btnfoot').removeProp('top');
+                    $('#btnfoot').removeProp('position');
+                    $('#col1').removeProp('padding');
+
+                    $('#btnfoot').css('position', 'absolute');
+                    $('#btnfoot').css('right', '16px');
+                    $('#btnfoot').css('top', '-50px');
+                    $('#col1').css('padding', '9px 0px 8px 15px');
+
+
+                }
+
+            });
+
+            if ($(window).width() > 960) {
+
+                $('.main-navigation').css('display', 'flex');
+
+                $('.drop-menu').hide();
+
+                $('#col1').removeProp('padding');
+                $('#btnfoot').removeProp('position');
+                $('#btnfoot').removeProp('right');
+                $('#btnfoot').removeProp('top');
+
+
+                $('#btnfoot').css('position', 'fixed');
+                $('#btnfoot').css('right', '254px');
+                $('#btnfoot').css('top', '0px');
+                $('#col1').css('padding', '0');
+            }
+
+            else if ($(window).width() < 960) {
+
+                $('.main-navigation').css('display', 'none');
+
+                $('#btnfoot').removeProp('right');
+                $('#btnfoot').removeProp('top');
+                $('#btnfoot').removeProp('position');
+                $('#col1').removeProp('padding');
+
+                $('#btnfoot').css('position', 'absolute');
+                $('#btnfoot').css('right', '16px');
+                $('#btnfoot').css('top', '-50px');
+                $('#col1').css('padding', '9px 0px 8px 15px');
+
+
+            }
+
+        });
+
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            //more then or equals to
+            if ($(window).scrollTop() >= 20) {
+                $("#btnfoot").css('display', 'none');
+                //less then 100px from top
+            } else {
+                $("#btnfoot").css('display', 'block');
+            }
+        }
+    </script>
+
+</body>
+</html>

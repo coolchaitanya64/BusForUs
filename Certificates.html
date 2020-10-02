@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+        .fntbtn {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'charlotte';
+            src: url('fonts/charlotte.ttf') format('truetype');
+        }
+
+        .dev {
+            font-family: charlotte;
+            color: white;
+            font-size: 400%;
+        }
+
+        @font-face {
+            font-family: 'Intimacy';
+            src: url('fonts/Intimacy.ttf') format('truetype');
+        }
+
+        .inti {
+            font-family: TitilliumWeb-Bold;
+            color: white;
+            font-size: 150%;
+        }
+
+        @font-face {
+            font-family: 'TitilliumWeb-Bold';
+            src: url('fonts/TitilliumWeb-Bold.ttf') format('truetype');
+        }
+
+        .frame {
+            width: 300px;
+            height: 250px;
+            border: 3px solid #ccc;
+            background: #eee;
+            margin: auto;
+            padding: 15px 10px;
+        }
+
+        h2 {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+            h2:before,
+            h2:after {
+                content: '';
+                border-top: 2px solid;
+                margin: 0 20px 0 0;
+                flex: 1 0 20px;
+                color:green
+            }
+
+            h2:after {
+                margin: 0 0 0 20px;
+            }
+
+        h2 {
+            font-family: Arial, Verdana;
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: #091f2f;
+            text-transform: uppercase;
+        }
+
+        
+
+    </style>
+    <style >
+        h2 {
+            font-family: Arial, Verdana;
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: #091f2f;
+            text-transform: uppercase;
+        }
+
+        .accordion-section .panel-default > .panel-heading {
+        }
+
+        .accordion-section .panel-default .panel-title a {
+        }
+
+            .accordion-section .panel-default .panel-title a:after {
+                font-family: 'FontAwesome';
+                font-style: normal;
+                font-size: 3rem;
+                content: "\f106";
+                color: #1f7de2;
+                float: right;
+                margin-top: -12px;
+            }
+
+            .accordion-section .panel-default .panel-title a.collapsed:after {
+                content: "\f107";
+            }
+
+        .accordion-section .panel-default .panel-body {
+            font-size: 1.2rem;
+            background: linear-gradient(to right, #ff9933 0%, #ff0000 100%);
+            color: white;
+        }
+    </style>
+    <title>Eatery Cafe and Restaurant Template</title>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/templatemo-style.css">
+
+</head>
+<body>
+
+    <!-- PRE LOADER -->
+    <section class="preloader">
+        <div class="spinner">
+
+            <span class="spinner-rotate"></span>
+
+        </div>
+    </section>
+
+
+    <!-- MENU -->
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+
+                <!-- lOGO TEXT HERE -->
+                <!--<a href="index.html" class="navbar-brand" style="background: url('../images/logo-st3.png')"></a>-->
+                <img src="images/logo-st3.png" width="30%" height="30%" />
+            </div>
+
+            <!-- MENU LINKS -->
+            <div class="collapse navbar-collapse">
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <a href="#" style="padding-left:10px">
+                        <img src="images/fb.png" width="30px" />
+                    </a>
+                    <a href="#" style="padding-left:10px">
+                        <img src="images/tw.png" width="30px" />
+                    </a>
+                    <a href="#" style="padding-left:10px">
+                        <img src="images/in.png" width="30px" />
+                    </a>
+                    <a href="#footer" class="section-btn" style="background-color:#004400;color:white;border-radius:12px;font-weight:bold">DONATE</a>
+                    <a href="#footer" class="section-btn" style="background-color:yellow;color:#004400;border-radius:12px;font-weight:bold">GET INVOLVED</a>
+                </ul>
+
+                <center>
+                    <ul class="nav navbar-nav" style="padding-top:10px">
+                        <li class="active" style="background-color:#004400;border-radius:10%;display: inline-block;margin-right:10px;"><a href="#" style="color:white;">HOME</a></li>
+                        <li class="dropdown" style="background-color:#004400;border-radius:10%;margin-right:10px;">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="color:white"> <span class="nav-label">ABOUT</span> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" style="color:white">Service A</a></li>
+                                <li><a href="#" style="color:white">Service B</a></li>
+                                <li class="dropdown-submenu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:white"> <span class="nav-label">Service C</span><span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" style="color:white">Service C1</a></li>
+                                        <li><a href="#" style="color:white">Service C2</a></li>
+                                        <li><a href="#" style="color:white">Service C3</a></li>
+                                        <li><a href="#" style="color:white">Service C4</a></li>
+                                        <li><a href="#" style="color:white">Service C5</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="active" style="background-color:#004400;border-radius:10%;margin-right:10px;"><a href="#" style="color:white">OUR WORK</a></li>
+                        <li class="active" style="background-color:#004400;border-radius:10%;margin-right:10px;"><a href="#" style="color:white">IMPACT STORIES</a></li>
+                        <li class="dropdown" style="background-color:#004400;border-radius:10%;margin-right:10px;">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" style="color:white"> <span class="nav-label">MEDIA</span> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" style="color:white">Service A</a></li>
+                                <li><a href="#" style="color:white">Service B</a></li>
+                                <li class="dropdown-submenu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">Service C</span><span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" style="color:white">Service C1</a></li>
+                                        <li><a href="#" style="color:white">Service C2</a></li>
+                                        <li><a href="#" style="color:white">Service C3</a></li>
+                                        <li><a href="#" style="color:white">Service C4</a></li>
+                                        <li><a href="#" style="color:white">Service C5</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="active" style="background-color:#004400;border-radius:10%;margin-right:10px;"><a href="#" style="color:white">CONTACT</a></li>
+                    </ul>
+                </center>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MENU-->
+    <section id="menu" class="accordion-section" data-stellar-background-ratio="0.5" style="margin:20px;padding-top:14%">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                        <h2 style="color:red">Certificates</h2>
+                    </div>
+                </div>
+
+                <center>
+
+                    <div class="col-md-6 col-sm-6">
+                        <!-- MENU THUMB -->
+                        <div class="menu-thumb" style="max-height:500px;max-width:400px">
+                            <a href="images/Cert/C1.jpg" class="image-popup" title="Dapodi Visit">
+                                <img src="images/Cert/C1.jpg" class="img-responsive" alt="">
+
+                                <div class="menu-info">
+                                    <div class="menu-item">
+                                        <h3>Dapodi Visit</h3>
+                                        <p>One day visit to CWD</p>
+                                    </div>
+                                    <div class="menu-price">
+                                        <span>20-Jun-2020</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <!-- MENU THUMB -->
+                        <div class="menu-thumb" style="max-height:500px;max-width:400px">
+                            <a href="images/Cert/C2.jpg" class="image-popup" title="Get Together">
+                                <img src="images/Cert/C2.jpg" class="img-responsive" alt="">
+
+                                <div class="menu-info">
+                                    <div class="menu-item">
+                                        <h3>Get Together</h3>
+                                        <p>Muktangan School,Pune</p>
+                                    </div>
+                                    <div class="menu-price">
+                                        <span>20-Jun-2020</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </center>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" data-stellar-background-ratio="0.5" style="padding:2px;background: linear-gradient(to right, #ff9933 0%, #ff0000 100%);">
+        <center><p style="color:white;margin:0px"> &copy; All Rights Reserved by BusForUs Foundation</p></center>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script>
+        setTimeout(function () {
+            $('#odometer1').prop('innerHTML', '456')
+            $('#odometer2').prop('innerHTML', '345')
+            $('#odometer3').prop('innerHTML', '242')
+        }, 1000);
+        $(document).ready(function () {
+
+            //hide drop menu and drop menu sub
+
+            $('.drop-menu, .drop-menu-sub ul').hide();
+
+            //show drop menu
+
+            $('.main-navigation li').css('cursor', 'pointer').click(function () {
+
+                $(this).find('.drop-menu').slideDown().end().siblings().find('ul').hide();
+
+            });
+
+            // show mobile menu icon at 960px window width
+
+            $('.mobile-menu-icon').css('cursor', 'pointer').click(function () {
+
+                $('.main-navigation').slideToggle();
+
+            });
+
+            //show drop menu sub
+
+            $('.drop-menu-sub').css('cursor', 'pointer').click(function () {
+
+                $(this).find('ul').slideToggle().end().siblings().find('ul').hide();
+
+            });
+
+            // close sub menu
+
+            $('.close-sub-menu').css('cursor', 'pointer').click(function () {
+
+                $(this).parent('ul').slideUp();
+
+                return false;
+
+            });
+
+            //drop menu slide up if window width more than 960px
+
+            $('.drop-menu').mouseleave(function () {
+
+                if ($(window).width() > 960) {
+
+                    $('.drop-menu').slideUp();
+
+                }
+
+            });
+
+            //realign main-navigation and hide drop menu at 960px window width
+
+            $(window).resize(function () {
+
+                if ($(window).width() > 960) {
+
+                    $('.main-navigation').css('display', 'flex');
+
+                    $('.drop-menu').hide();
+
+                    $('#btnfoot').removeProp('position');
+                    $('#btnfoot').removeProp('right');
+                    $('#btnfoot').removeProp('top');
+                    $('#col1').removeProp('padding');
+
+
+                    $('#btnfoot').css('position', 'fixed');
+                    $('#btnfoot').css('right', '254px');
+                    $('#btnfoot').css('top', '0px');
+                    $('#col1').css('padding', '0');
+
+                }
+
+                else if ($(window).width() < 960) {
+
+                    $('.main-navigation').css('display', 'none');
+
+                    $('#btnfoot').removeProp('right');
+                    $('#btnfoot').removeProp('top');
+                    $('#btnfoot').removeProp('position');
+                    $('#col1').removeProp('padding');
+
+                    $('#btnfoot').css('position', 'absolute');
+                    $('#btnfoot').css('right', '16px');
+                    $('#btnfoot').css('top', '-50px');
+                    $('#col1').css('padding', '9px 0px 8px 15px');
+
+
+                }
+
+            });
+
+            if ($(window).width() > 960) {
+
+                $('.main-navigation').css('display', 'flex');
+
+                $('.drop-menu').hide();
+
+                $('#col1').removeProp('padding');
+                $('#btnfoot').removeProp('position');
+                $('#btnfoot').removeProp('right');
+                $('#btnfoot').removeProp('top');
+
+
+                $('#btnfoot').css('position', 'fixed');
+                $('#btnfoot').css('right', '254px');
+                $('#btnfoot').css('top', '0px');
+                $('#col1').css('padding', '0');
+            }
+
+            else if ($(window).width() < 960) {
+
+                $('.main-navigation').css('display', 'none');
+
+                $('#btnfoot').removeProp('right');
+                $('#btnfoot').removeProp('top');
+                $('#btnfoot').removeProp('position');
+                $('#col1').removeProp('padding');
+
+                $('#btnfoot').css('position', 'absolute');
+                $('#btnfoot').css('right', '16px');
+                $('#btnfoot').css('top', '-50px');
+                $('#col1').css('padding', '9px 0px 8px 15px');
+
+
+            }
+
+        });
+
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            //more then or equals to
+            if ($(window).scrollTop() >= 20) {
+                $("#btnfoot").css('display', 'none');
+                //less then 100px from top
+            } else {
+                $("#btnfoot").css('display', 'block');
+            }
+        }
+    </script>
+</body>
+</html>
